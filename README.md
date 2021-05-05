@@ -14,32 +14,40 @@ Or point to the ZIP file of a [specific release](https://github.com/DerMakaber/p
 # Usage
 
 Connect to a MQTT broker.
+
       local mqtt = require "paho.mqtt"
 
       client = mqtt.client.create("broker.mqttdashboard.com", 1883, callback)
-      self.client:connect("paho-defold-client-sample-identifier") -- Client identifier, this must he unique
+      self.client:connect("paho-defold-client-sample-identifier") -- Client identifier, must be unique
 
 The _callback function_ will be called on a received message to a subcribed topic.
+
       local callback = function(topic, payload)
             print(string.format('Hey, %s just received: %s.', topic, payload))
       end
 
 Subscribe to a topic.
+
 	client:subscribe({"topic/sample"})
 
 Unsubscribe from a topic
+
       client:unsubscribe({"topic/sample"})
 
 Call the handler to service incoming transmission
+
       mqtt.client:handler()
 
 Publish a message to a topic.
+
       client:publish("topic/sample", "Testmessage from Defold")
 
 Disconnect the client.
+
       client:disconnect()
 
 Destroy the client to free resources
+
       client:destroy()
 
 # Example

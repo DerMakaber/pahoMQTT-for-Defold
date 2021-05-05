@@ -2,7 +2,7 @@ local mqtt = require "paho.mqtt"
 
 BROKER = "broker.mqttdashboard.com"  -- Address of the Broker
 PORT = 1883 -- Port of the Broker
-CLIENT_ID = "paho-defold-client-sample-identifier" -- Client identifier, this must he unique
+CLIENT_ID = "paho-defold-client-sample-identifier" -- Client identifier, this must be unique
 
 -- Callback function that executes on a reveived message
 local callback = function(topic, payload)
