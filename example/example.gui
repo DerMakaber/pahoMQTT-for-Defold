@@ -42,7 +42,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "<text>"
+  text: "Incoming text"
   font: "system_font"
   id: "incoming_text"
   xanchor: XANCHOR_NONE
