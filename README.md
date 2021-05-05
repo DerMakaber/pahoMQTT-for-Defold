@@ -5,7 +5,8 @@ Originally written by Kévin KIN-FOO and available at
 https://www.hivemq.com/blog/mqtt-client-library-encyclopedia-paho-lua/
 
 # Installation
-You can use PahoMQTT in your own project by adding this project as a [Defold library dependency](http://www.defold.com/manuals/libraries/). Open your game.project file and in the dependencies field under project add:
+You can use PahoMQTT in your own project by adding this project as a [Defold library dependency](http://www.defold.com/manuals/libraries/).
+Open your game.project file and in the dependencies field under project add:
 
 https://github.com/DerMakaber/pahoMQTT-for-Defold/archive/master.zip
 
