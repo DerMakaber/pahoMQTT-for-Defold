@@ -1,6 +1,6 @@
 # PahoMQTT for Defold
 
-The Paho MQTT Client for Defold.
+The Paho MQTT client prepared for Defold.
 Originally written by Kévin KIN-FOO and available at
 https://www.hivemq.com/blog/mqtt-client-library-encyclopedia-paho-lua/
 
@@ -189,5 +189,9 @@ This function must be called periodically to service incoming messages and to en
 The default _KEEP\_ALIVE\_TIME_ is 60 seconds, therefore _handler()_ must be invoked more often than once per minute.
 
 Should any messages be received on the subscribed topics, then _handler()_ will invoke the callback function (defined above).
+
+# Notes
+
+I only bundled the Lua Paho MQTT client to be used with Defold. There are only small changes done to the original code to get it working with Defold, no major changes have been done. The example provided was created by myself.
 
 ---
