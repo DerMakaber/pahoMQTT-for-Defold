@@ -5,7 +5,7 @@ Originally written by Kévin KIN-FOO and available at
 https://www.hivemq.com/blog/mqtt-client-library-encyclopedia-paho-lua/
 
 # Installation
-You can use PAhoMQTT in your own project by adding this project as a [Defold library dependency](http://www.defold.com/manuals/libraries/). Open your game.project file and in the dependencies field under project add:
+You can use PahoMQTT in your own project by adding this project as a [Defold library dependency](http://www.defold.com/manuals/libraries/). Open your game.project file and in the dependencies field under project add:
 
 https://github.com/DerMakaber/pahoMQTT-for-Defold/archive/master.zip
 
@@ -13,7 +13,7 @@ Or point to the ZIP file of a [specific release](https://github.com/DerMakaber/p
 
 # Usage
 
-Connect to a MQTT broker.
+Connect to an MQTT broker (server).
 
       local mqtt = require "paho.mqtt"
 
@@ -46,7 +46,7 @@ Disconnect the client.
 
       client:disconnect()
 
-Destroy the client to free resources
+Destroy the client to free resources.
 
       client:destroy()
 
@@ -127,11 +127,11 @@ The _callback function_ is defined as follows:
 
 ### mqtt.client:connect(identifier, [will_topic], [will_qos], [will_retain], [will_message])
 
-Make a connection to an MQTT server.
-Before messages can be transmitted, the MQTT client must connect to the server.
+Make a connection to an MQTT broker.
+Before messages can be transmitted, the MQTT client must connect to the broker.
 Each individual client connection must use a unique identifier.
 
-MQTT also provides a "last will and testament" for clients, which is a message automatically sent by the server on behalf of the client, should the connection fail.
+MQTT also provides a "last will and testament" for clients, which is a message automatically sent by the broker on behalf of the client, should the connection fail.
 
 **PARAMETERS**
 * `identifier` (string) - MQTT client identifier (maximum 23 characters)
@@ -142,7 +142,7 @@ MQTT also provides a "last will and testament" for clients, which is a message a
 
 ### mqtt.client:disconnect()
 
-Transmit a MQTT disconnect message to the server.
+Transmit an MQTT disconnect message to the broker.
 
 ### mqtt.client:auth(user, password)
 
@@ -155,7 +155,7 @@ Call this before connecting.
 
 ### mqtt.client:destroy()
 
-When finished with a server connection, this statement cleans-up all resources allocated by the client.
+When finished with a broker connection, this statement cleans-up all resources allocated by the client.
 
 ### mqtt.client:publish(topic, payload)
 
