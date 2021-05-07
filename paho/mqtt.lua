@@ -71,14 +71,14 @@
 -- - Consider using Copas http://keplerproject.github.com/copas/manual.html
 -- ------------------------------------------------------------------------- --
 
-function isPsp() return(Socket ~= nil) end
-
-if (not isPsp()) then
-  require("socket")
-  require("io")
-  --require("ltn12")
---require("ssl")
-end
+-- function isPsp() return(Socket ~= nil) end
+-- 
+-- if (not isPsp()) then
+--   --require "socket"
+--   --require("io")
+--   --require("ltn12")
+-- --require("ssl")
+-- end
 
 local MQTT = {}
 
