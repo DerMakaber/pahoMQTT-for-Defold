@@ -13,6 +13,7 @@ input_method = HiddenInputField
 
 [project]
 title = PahoMQTT
+version = 1.1
 
 [library]
 include_dirs = paho

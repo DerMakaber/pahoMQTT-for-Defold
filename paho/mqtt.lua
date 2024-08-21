@@ -481,7 +481,13 @@ function MQTT.client:message_write(                             -- Internal API
 
 -- TODO: Complete implementation of fixed header byte 1
 
-  local message = string.char(MQTT.Utility.shift_left(message_type, 4))
+local message
+if (message_type == MQTT.message.TYPE_PUBREL) or (message_type == MQTT.message.TYPE_SUBSCRIBE) or (message_type == MQTT.message.TYPE_UNSUBSCRIBE) then
+  local message_with_flags = MQTT.Utility.shift_left(message_type, 4) + 2
+  message = string.char(message_with_flags)
+else
+  message = string.char(MQTT.Utility.shift_left(message_type, 4))
+end
 
   if (payload == nil) then
     message = message .. string.char(0)  -- Zero length, no payload
@@ -600,7 +606,7 @@ function MQTT.client:parse_message_conack(                      -- Internal API
   if (return_code ~= 0) then
     local error_message = "Unknown return code"
 
-    if (return_code <= table.getn(MQTT.CONACK.error_message)) then
+    if (return_code <= #(MQTT.CONACK.error_message)) then
       error_message = MQTT.CONACK.error_message[return_code]
     end
 
@@ -706,7 +712,7 @@ function MQTT.client:parse_message_suback(                      -- Internal API
     error(me .. ": Outstanding message wasn't SUBSCRIBE")
   end
 
-  local topic_count = table.getn(outstanding[2])
+  local topic_count = #(outstanding[2])
 
   if (topic_count ~= remaining_length - 2) then
     error(me .. ": Didn't received expected number of topics: " .. topic_count)
